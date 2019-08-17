@@ -18,39 +18,25 @@ public class Responsible extends NamedEntityModel implements Serializable {
     private Integer nit;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "tipo_responsableid")
+    private ResponsibleType responsibleType;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "responsableid")
+    private Responsible parent;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "municipioid")
     private Municipality municipality;
 
     @JsonIgnore
     @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinTable(
-            name = "linea_baseid",
+            name = "jerarquia_responsable",
             joinColumns = {@JoinColumn(name = "responsableid")},
             inverseJoinColumns = {@JoinColumn(name = "linea_baseid")}
     )
     private List<Hierarchy> hierarchies;
 
-    public Integer getNit() {
-        return nit;
-    }
 
-    public void setNit(Integer nit) {
-        this.nit = nit;
-    }
-
-    public Municipality getMunicipality() {
-        return municipality;
-    }
-
-    public void setMunicipality(Municipality municipality) {
-        this.municipality = municipality;
-    }
-
-    public List<Hierarchy> getHierarchies() {
-        return hierarchies;
-    }
-
-    public void setHierarchies(List<Hierarchy> hierarchies) {
-        this.hierarchies = hierarchies;
-    }
 }

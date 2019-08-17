@@ -2,9 +2,8 @@ package entities;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
@@ -14,35 +13,20 @@ import java.io.Serializable;
 public class SemaphoreRange extends NamedEntityModel implements Serializable {
 
     @Column(name = "color")
+    @NotNull(message = "Semaphore needs a color")
     private int color;
 
     @Column(name = "rango_inicio")
+    @NotNull(message = "Semaphore needs a start range")
     private int start;
 
     @Column(name = "rango_fin")
+    @NotNull(message = "Semaphore needs an end range")
     private int end;
 
-    public int getColor() {
-        return color;
-    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "linea_baseid")
+    private Hierarchy hierarchy;
 
-    public void setColor(int color) {
-        this.color = color;
-    }
 
-    public int getStart() {
-        return start;
-    }
-
-    public void setStart(int start) {
-        this.start = start;
-    }
-
-    public int getEnd() {
-        return end;
-    }
-
-    public void setEnd(int end) {
-        this.end = end;
-    }
 }

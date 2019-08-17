@@ -49,51 +49,15 @@ public class Objective extends NamedEntityModel implements Serializable {
         hierarchies.add(hierarchy);
     }
 
-    public String getDescription() {
-        return description;
-    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "tipo_objetivoid")
+    private ObjectiveType objectiveType;
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "objetivo_padre_id")
+    private Objective parent;
 
-    public Date getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
-
-    public int getExpectedValue() {
-        return expectedValue;
-    }
-
-    public void setExpectedValue(int expectedValue) {
-        this.expectedValue = expectedValue;
-    }
-
-    public int getActualValue() {
-        return actualValue;
-    }
-
-    public void setActualValue(int actualValue) {
-        this.actualValue = actualValue;
-    }
-
-    public List<Hierarchy> getHierarchies() {
-        return hierarchies;
-    }
-
-    public void setHierarchies(List<Hierarchy> hierarchies) {
-        this.hierarchies = hierarchies;
-    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "indicadorid")
+    private Indicator indicator;
 }

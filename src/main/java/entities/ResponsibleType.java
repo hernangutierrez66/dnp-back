@@ -3,9 +3,8 @@ package entities;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
@@ -16,6 +15,11 @@ public class ResponsibleType extends NamedEntityModel implements Serializable {
 
     @Column(name = "requiere_municipio")
     private boolean requiresMunicipality;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "tipo_responsableid")
+    @NotNull(message = "Responsable type needs a parent")
+    private ResponsibleType parent;
 
     public boolean isRequiresMunicipality() {
         return requiresMunicipality;
