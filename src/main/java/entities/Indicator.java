@@ -11,15 +11,17 @@ import java.io.Serializable;
 @Table(name="indicador")
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class Indicator extends NamedEntityModel implements Serializable {
+public class Indicator extends EntityModel implements Serializable{
+
+    @Column(unique = true, name = "nombre")
+    private String name;
 
     @Column(name = "unidad")
-
     private int unity;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "orientacion_indicadorid")
-    @NotNull(message = "Indicator needs an orientation indicator")
-    private OrientationIndicator orientationIndicator;
+    @NotNull(message = "Indicator needs an indicator orientation")
+    private IndicatorOrientation indicatorOrientation;
 
 }

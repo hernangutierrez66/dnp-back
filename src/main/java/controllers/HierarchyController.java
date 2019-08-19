@@ -28,6 +28,10 @@ public class HierarchyController extends ValidatedController {
 
     public static final String SUCCESFUL_CREATION = "Creación Exitosa";
 
+    public static final String SUCCESFUL_UPDATE = "Actualización Exitosa";
+
+    public static final String SUCCESFUL_DELETE = "Eliminación Exitosa";
+
     public static final String NOT_FOUND = "No se encontró el elemento";
 
     @Autowired
