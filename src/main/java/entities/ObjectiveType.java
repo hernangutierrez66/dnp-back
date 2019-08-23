@@ -16,9 +16,8 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 public class ObjectiveType extends NamedEntityModel implements Serializable {
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tipo_padre_id")
-    @NotNull(message = "Objetive type needs a parent")
     private ObjectiveType parent;
 
     @JsonIgnore

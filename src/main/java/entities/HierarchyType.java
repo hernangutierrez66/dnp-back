@@ -29,4 +29,9 @@ public class HierarchyType extends NamedEntityModel implements Serializable {
 
     @ManyToMany(mappedBy = "hierarchyTypes", fetch = FetchType.LAZY)
     private List<ObjectiveType> objectiveTypes;
+
+    public void addObjective(ObjectiveType objectiveType) {
+        if (objectiveTypes == null) objectiveTypes = new ArrayList<>();
+        objectiveTypes.add(objectiveType);
+    }
 }

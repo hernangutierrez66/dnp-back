@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name="tipo_responsable")
-@Data
+
 @EqualsAndHashCode(callSuper = true)
 public class ResponsibleType extends NamedEntityModel implements Serializable {
 
