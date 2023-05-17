@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface HierarchyTypeRepository extends JpaRepository<HierarchyType, Integer> {
 
-    //List<Hierarchy> findByType(HierarchyType hierarchyType);
+    
 
     //List<Hierarchy> findByParent(HierarchyType hierarchyType);
 }
