@@ -55,12 +55,10 @@
 
     <properties>
         <java.version>1.8</java.version>
-    </properties>
-
-    <properties>
         <sonar.organization>hernangutierrez66</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
+    
     <build>
         <plugins>
             <plugin>
