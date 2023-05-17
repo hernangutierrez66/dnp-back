@@ -5,4 +5,4 @@
 -- INSERT INTO tipo_jerarquia(id, nombre) VALUES(2, 'Pilar');
 -- INSERT INTO tipo_jerarquia(id, nombre) VALUES(3, 'Programa');
 -- INSERT INTO tipo_jerarquia(id, nombre) VALUES(4, 'Proyecto');
-SELECT * FROM tipo_jerarquia;
+SELECT * FROM tipo_jerarquia limit 1;
